@@ -15,8 +15,9 @@ var server = app.listen(5000, function () {
 const fs = require("fs");
 const fileUpload = require("express-fileupload");
 const io = require("socket.io")(server, {
+   allowEIO3: true, // false by default
     cors: {
-    origin: ["https://udemyfronttest.onrender.com"], // frontend URL
+    origin: "https://udemyfronttest.onrender.com", // frontend URL
     methods: ["GET", "POST"],
     credentials: true
   }
@@ -237,6 +238,7 @@ app.post("/attachimg", function (req, res) {
     }
   );
 });
+
 
 
 
