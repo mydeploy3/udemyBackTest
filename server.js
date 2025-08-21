@@ -17,7 +17,7 @@ const fs = require("fs");
 const fileUpload = require("express-fileupload");
 const io = require("socket.io")(server, {
    cors: {
-    origin: *,
+    origin: "*",
     methods: ["GET", "POST"],
     credentials: true
   },
@@ -239,6 +239,7 @@ app.post("/attachimg", function (req, res) {
     }
   );
 });
+
 
 
 
