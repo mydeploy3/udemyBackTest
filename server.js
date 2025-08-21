@@ -23,7 +23,7 @@ const io = require("socket.io")(server, {
     ],
     methods: ["GET", "POST"],
     credentials: true
-  }
+  },
   allowEIO3: true, // false by default
 });
 app.use(express.static(path.join(__dirname, "")));
@@ -242,6 +242,7 @@ app.post("/attachimg", function (req, res) {
     }
   );
 });
+
 
 
 
