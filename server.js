@@ -5,7 +5,7 @@ var app = express();
 
 // Allow your ngrok frontend to call the backend
 app.use(cors({
-  origin: "https://c86fc6361e34.ngrok-free.app", // your frontend URL
+  origin: "*", // your frontend URL
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true,
 }));  
@@ -16,6 +16,14 @@ var server = app.listen(5000, function () {
 const fs = require("fs");
 const fileUpload = require("express-fileupload");
 const io = require("socket.io")(server, {
+   cors: {
+    origin: [
+      "*", // frontend ngrok
+      "https://udemybacktest.onrender.com"   // backend domain (if serving frontend too)
+    ],
+    methods: ["GET", "POST"],
+    credentials: true
+  }
   allowEIO3: true, // false by default
 });
 app.use(express.static(path.join(__dirname, "")));
@@ -234,5 +242,6 @@ app.post("/attachimg", function (req, res) {
     }
   );
 });
+
 
 
