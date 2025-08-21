@@ -1,6 +1,15 @@
 const express = require("express");
+const cors = require("cors");
 const path = require("path");
 var app = express();
+
+// Allow your ngrok frontend to call the backend
+app.use(cors({
+  origin: "https://c86fc6361e34.ngrok-free.app", // your frontend URL
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true,
+}));  
+
 var server = app.listen(5000, function () {
   console.log("Listening on port 5000");
 });
@@ -225,4 +234,5 @@ app.post("/attachimg", function (req, res) {
     }
   );
 });
+
 
