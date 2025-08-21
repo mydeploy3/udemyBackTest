@@ -17,10 +17,7 @@ const fs = require("fs");
 const fileUpload = require("express-fileupload");
 const io = require("socket.io")(server, {
    cors: {
-    origin: [
-      "*", // frontend ngrok
-      "https://udemybacktest.onrender.com"   // backend domain (if serving frontend too)
-    ],
+    origin: *,
     methods: ["GET", "POST"],
     credentials: true
   },
@@ -242,6 +239,7 @@ app.post("/attachimg", function (req, res) {
     }
   );
 });
+
 
 
 
